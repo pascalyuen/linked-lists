@@ -56,6 +56,13 @@ class LinkedList
 
   # Return the node at the given index
   def at(index)
+    current = @head
+    current_index = 0
+    until(current_index == index)
+      current_index += 1
+      current = current.next_node
+    end
+    current.value
   end
 
   # Remove the last element from the list
@@ -102,3 +109,4 @@ ll.to_s
 puts "Size: #{ll.size}"
 puts "Head: #{ll.head}"
 puts "Tail: #{ll.tail}"
+puts "At index 1: #{ll.at(1)}"
