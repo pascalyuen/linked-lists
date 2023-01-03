@@ -18,6 +18,7 @@ class LinkedList
     @tail.next_node = new_node
     @tail = new_node
    end
+   self.to_s
   end
 
   # Add a new node containing value to the start of the list
@@ -31,6 +32,7 @@ class LinkedList
       new_node.next_node = @head
       @head = new_node
      end
+     self.to_s
   end
 
   # Return the total number of nodes in the list
@@ -106,6 +108,19 @@ class LinkedList
     print 'nil'
     puts ''
   end
+
+  # Extra Credit
+
+  #insert_at(value, index) that inserts a new node with the provided value at the given index
+  def insert_at(value, index)
+    new_node = Node.new(value, self.at(index))
+    self.at(index - 1).next_node = new_node
+    self.to_s
+  end
+
+  #remove_at(index) that removes the node at the given index
+  def remove_at(index)
+  end
 end
 
 # Node class, containing a #value method and a link to the #next_node, set both as nil by default
@@ -122,7 +137,6 @@ ll = LinkedList.new
 ll.append(100)
 ll.append(200)
 ll.prepend(50)
-ll.to_s
 puts "Size: #{ll.size}"
 puts "Head: #{ll.head.value}"
 puts "Tail: #{ll.tail.value}"
@@ -130,3 +144,4 @@ puts "At index 1: #{ll.at(1).value}"
 ll.pop
 puts "Contains 100?: #{ll.contains?(100)}; Contains 500?: #{ll.contains?(500)}"
 puts "Index of 100: #{ll.find(100)}; Index of 500: #{ll.find(500)}"
+ll.insert_at(70, 1)
