@@ -35,6 +35,13 @@ class LinkedList
 
   # Return the total number of nodes in the list
   def size
+    current = @head
+    count = 0
+    while(current)
+      count += 1
+      current = current.next_node
+    end
+    count
   end
 
   # Return the first node in the list
@@ -92,3 +99,4 @@ ll.append(100)
 ll.append(200)
 ll.prepend(50)
 ll.to_s
+puts ll.size
