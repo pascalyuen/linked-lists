@@ -46,12 +46,12 @@ class LinkedList
 
   # Return the first node in the list
   def head
-    @head.value
+    @head
   end
 
   # Return the last node in the list
   def tail
-    @tail.value
+    @tail
   end
 
   # Return the node at the given index
@@ -84,6 +84,14 @@ class LinkedList
 
   # Return the index of the node containing value, or nil if not found
   def find(value)
+    current = @head
+    current_index = 0
+    while(current)
+      return current_index if current.value == value
+      current = current.next_node
+      current_index += 1
+    end
+    nil
   end
 
   # Represent your LinkedList objects as strings
@@ -116,8 +124,9 @@ ll.append(200)
 ll.prepend(50)
 ll.to_s
 puts "Size: #{ll.size}"
-puts "Head: #{ll.head}"
-puts "Tail: #{ll.tail}"
+puts "Head: #{ll.head.value}"
+puts "Tail: #{ll.tail.value}"
 puts "At index 1: #{ll.at(1).value}"
 ll.pop
 puts "Contains 100?: #{ll.contains?(100)}; Contains 500?: #{ll.contains?(500)}"
+puts "Index of 100: #{ll.find(100)}; Index of 500: #{ll.find(500)}"
