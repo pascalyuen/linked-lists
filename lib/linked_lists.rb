@@ -62,11 +62,14 @@ class LinkedList
       current_index += 1
       current = current.next_node
     end
-    current.value
+    current
   end
 
   # Remove the last element from the list
   def pop
+    second_last = self.size - 2
+    self.at(second_last).next_node = nil
+    self.to_s
   end
 
   # Return true if the passed in value is in the list and otherwise returns false
@@ -109,4 +112,5 @@ ll.to_s
 puts "Size: #{ll.size}"
 puts "Head: #{ll.head}"
 puts "Tail: #{ll.tail}"
-puts "At index 1: #{ll.at(1)}"
+puts "At index 1: #{ll.at(1).value}"
+ll.pop
