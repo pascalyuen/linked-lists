@@ -46,12 +46,12 @@ class LinkedList
 
   # Return the first node in the list
   def head
-    @head
+    @head.value
   end
 
   # Return the last node in the list
   def tail
-    @tail
+    @tail.value
   end
 
   # Return the node at the given index
@@ -99,4 +99,6 @@ ll.append(100)
 ll.append(200)
 ll.prepend(50)
 ll.to_s
-puts ll.size
+puts "Size: #{ll.size}"
+puts "Head: #{ll.head}"
+puts "Tail: #{ll.tail}"
