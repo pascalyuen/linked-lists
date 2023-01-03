@@ -1,6 +1,8 @@
 # LinkedList class, which will represent the full list
 class LinkedList
   def initilize(head = nil, tail = nil)
+    # A head node is the first node in the list
+    # A tail node is the last node in the list
     @head = head
     @tail = tail
   end
@@ -9,7 +11,7 @@ class LinkedList
   def append(value)
    new_node = Node.new(value)
 
-   if head.nil?
+   if @head.nil?
     @head = new_node
     @tail = new_node
    else
@@ -65,16 +67,28 @@ class LinkedList
   # so you can print them out and preview them in the console
   # The format should be: ( value ) -> ( value ) -> ( value ) -> nil
   def to_s
+    current = @head
+    while(current)
+      print "( #{ current.value } ) -> "
+      current = current.next_node
+    end
+    print 'nil'
+    puts ''
   end
 end
 
 # Node class, containing a #value method and a link to the #next_node, set both as nil by default
 class Node
-  def initilize(value = nil, next_node = nil)
+  attr_accessor :value, :next_node
+
+  def initialize(value = nil, next_node = nil)
     @value = value
     @next_node = next_node
   end
 end
 
-newList = LinkedList.new
-p newList.append
+ll = LinkedList.new
+ll.append(100)
+ll.append(200)
+ll.prepend(50)
+ll.to_s
