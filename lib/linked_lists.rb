@@ -74,6 +74,12 @@ class LinkedList
 
   # Return true if the passed in value is in the list and otherwise returns false
   def contains?(value)
+    current = @head
+    while(current)
+      return true if current.value == value
+      current = current.next_node
+    end
+    false
   end
 
   # Return the index of the node containing value, or nil if not found
@@ -114,3 +120,4 @@ puts "Head: #{ll.head}"
 puts "Tail: #{ll.tail}"
 puts "At index 1: #{ll.at(1).value}"
 ll.pop
+puts "Contains 100?: #{ll.contains?(100)}; Contains 500?: #{ll.contains?(500)}"
