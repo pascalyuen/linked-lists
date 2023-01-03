@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+require_relative 'node'
+
 # LinkedList class, which will represent the full list
 class LinkedList
   def initilize(head = nil, tail = nil)
@@ -130,16 +134,6 @@ class LinkedList
     @head = self.at(index + 1) if index == 0
     self.at(index - 1).next_node = self.at(index + 1) if index > 0
     element
-  end
-end
-
-# Node class, containing a #value method and a link to the #next_node, set both as nil by default
-class Node
-  attr_accessor :value, :next_node
-
-  def initialize(value = nil, next_node = nil)
-    @value = value
-    @next_node = next_node
   end
 end
 
